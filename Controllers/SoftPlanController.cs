@@ -26,7 +26,7 @@ namespace SoftPLan.Controllers
         [HttpGet("showmethecode")]
         public string showmethecode()
         {
-            return "Texto";
+            return "https://github.com/thiagounix/Softplan";
         }
     }
 }
