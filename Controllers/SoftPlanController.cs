@@ -14,15 +14,22 @@ namespace SoftPLan.Controllers
         }
 
         [HttpGet("calculajuros")]
-        public decimal CalculaJuros(decimal valorInicial, int meses)
+        public ActionResult<decimal> CalculaJuros(decimal valorInicial, int meses)
         {
-            return decimal.Round(valorInicial * (decimal)Math.Pow(1.0 + (double)TaxaJuros(), meses),2);
+            var result = TaxaJuros();
+            if (result.Equals(null))
+            {
+                return NotFound();
+            } 
+                
+            return decimal.Round(valorInicial * (decimal)Math.Pow(1.0 + (double)result, meses),2);
         }
         
         [HttpGet("showmethecode")]
-        public string showmethecode()
+        public void showmethecode()
         {
-            return "https://github.com/thiagounix/Softplan";
+            Response.Redirect("https://github.com/thiagounix/Softplan");
+          
         }
     }
 }
