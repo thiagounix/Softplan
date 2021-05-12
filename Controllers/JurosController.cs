@@ -19,7 +19,7 @@ namespace SoftPLan.Controllers
             var result = TaxaJuros();
             if (result.Equals(null))
             {
-                return NotFound();
+                return NotFound("Taxa de juros não encontrada!");
             } 
                 
             return decimal.Round(valorInicial * (decimal)Math.Pow(1.0 + (double)result, meses),2);
