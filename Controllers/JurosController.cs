@@ -4,8 +4,8 @@ using System;
 namespace SoftPLan.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
-    public class SoftPlanController : ControllerBase
+    [Route("[controller]")]
+    public class JurosController : ControllerBase
     {
         [HttpGet("taxajuros")]
         public decimal TaxaJuros()
@@ -25,11 +25,6 @@ namespace SoftPLan.Controllers
             return decimal.Round(valorInicial * (decimal)Math.Pow(1.0 + (double)result, meses),2);
         }
         
-        [HttpGet("showmethecode")]
-        public void showmethecode()
-        {
-            Response.Redirect("https://github.com/thiagounix/Softplan");
-          
-        }
+      
     }
 }
